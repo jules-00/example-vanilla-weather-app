@@ -61,12 +61,19 @@ function handleSubmit(event) {
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let tempeartureElement = document.querySelector("#temperature");
+  // remove the active class on the celsius link
+  celsiusLink.classList.remove("active");
+  // add active link to fahrenheit link
+  fahrenheitLink.classList.add("active");
+  // calculate Fahrenheit temperature
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   tempeartureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let tempeartureElement = document.querySelector("#temperature");
   tempeartureElement.innerHTML = Math.round(celsiusTemperature);
 }
